@@ -19,6 +19,17 @@ module.exports = function (api) {
           },
         },
       ],
+      [
+        "module:react-native-dotenv",
+        {
+          moduleName: "env-config",
+          path: ".env.production",
+          blacklist: null,
+          whitelist: null,
+          safe: false,
+          allowUndefined: true,
+        },
+      ],
     ],
   };
 };
