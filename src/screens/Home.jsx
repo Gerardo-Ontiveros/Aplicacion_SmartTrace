@@ -6,6 +6,7 @@ import { db, ref, onValue } from "@lib/firebase";
 import COLORS from "@constants/Colors";
 import Card from "@components/Card";
 import DetailsClimate from "@components/DetailsClimate";
+import { Layout } from "../layout/Layout";
 
 export const Home = () => {
   const [temperature, setTemperature] = useState(0);
@@ -64,13 +65,7 @@ export const Home = () => {
   };
 
   return (
-    <ScrollView
-      style={{
-        flex: 1,
-        backgroundColor: COLORS.lightTheme.primaryColor,
-        paddingTop: 50,
-      }}
-    >
+    <Layout>
       <Text
         style={{
           paddingLeft: 24,
@@ -159,7 +154,7 @@ export const Home = () => {
       </View>
 
       <StatusBar style="auto" />
-    </ScrollView>
+    </Layout>
   );
 };
 
