@@ -8,6 +8,7 @@ import Icon from "react-native-vector-icons/Feather";
 import Icon2 from "react-native-vector-icons/FontAwesome6";
 import Icon3 from "react-native-vector-icons/MaterialCommunityIcons";
 import { LinearGradient } from "expo-linear-gradient";
+import COLORS from "@constants/Colors";
 
 const Tab = createBottomTabNavigator();
 
@@ -17,16 +18,7 @@ export const TabNavigator = () => {
       screenOptions={{
         headerShown: false,
         tabBarStyle: {
-          height: 88,
-          position: "absolute",
-          borderTopWidth: 0,
-          elevation: 0,
-          paddingHorizontal: 0,
-          backgroundColor: "#4EA3DB",
-        },
-        tabBarIconStyle: {
-          justifyContent: "center",
-          alignItems: "center",
+          backgroundColor: COLORS.lightTheme.primaryColor,
         },
       }}
     >
@@ -39,7 +31,11 @@ export const TabNavigator = () => {
             <Icon
               name="home"
               size={24}
-              color={focused ? "#ffffff" : "#a9a9a9"}
+              color={
+                focused
+                  ? COLORS.lightTheme.focusIcon
+                  : COLORS.lightTheme.whiteColor
+              }
             />
           ),
         }}
@@ -53,7 +49,11 @@ export const TabNavigator = () => {
             <Icon2
               name="temperature-quarter"
               size={24}
-              color={focused ? "#ffffff" : "#a9a9a9"}
+              color={
+                focused
+                  ? COLORS.lightTheme.focusIcon
+                  : COLORS.lightTheme.whiteColor
+              }
             />
           ),
         }}
@@ -67,7 +67,11 @@ export const TabNavigator = () => {
             <Icon3
               name="car-brake-low-pressure"
               size={24}
-              color={focused ? "#ffffff" : "#a9a9a9"}
+              color={
+                focused
+                  ? COLORS.lightTheme.focusIcon
+                  : COLORS.lightTheme.whiteColor
+              }
             />
           ),
         }}
@@ -82,7 +86,11 @@ export const TabNavigator = () => {
             <Icon
               name="settings"
               size={24}
-              color={focused ? "#ffffff" : "#a9a9a9"}
+              color={
+                focused
+                  ? COLORS.lightTheme.foucsIcon
+                  : COLORS.lightTheme.whiteColor
+              }
             />
           ),
         }}
