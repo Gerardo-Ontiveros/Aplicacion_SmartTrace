@@ -1,4 +1,4 @@
-import { TabNavigator } from "@routes/screens.routes";
+import TabNavigator from "@routes/screens.routes";
 import { NavigationContainer } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 import { useEffect } from "react";
