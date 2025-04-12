@@ -4,28 +4,32 @@
     "slug": "SmartTraceApp",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/carrito.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "./assets/carrito.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "ios": {
-      "supportsTablet": true
+      "backgroundColor": "#282534"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/carrito.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.reexxy.smarttrace"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/carrito.png"
     },
-    "plugins": [
-      "expo-font"
-    ]
+    "plugins": ["expo-font"],
+    "extra": {
+      "eas": {
+        "projectId": "30ddd0ec-5975-45bf-b631-93723a07ad8b"
+      }
+    },
+    "ios": {
+      "bundleIdentifier": "com.reexxy.smarttrace"
+    }
   }
 }
