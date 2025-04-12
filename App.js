@@ -1,29 +1,45 @@
-import TabNavigator from "@routes/screens.routes";
-import { NavigationContainer } from "@react-navigation/native";
-import { useFonts } from "expo-font";
-import { useEffect } from "react";
-import * as SplashScreen from "expo-splash-screen";
+import React, { useEffect, useState } from 'react';
+import { View, ActivityIndicator } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { StackNavigator } from '@routes/screens.routes';
+import TabNavigator from '@routes/screens.routes';
 
-SplashScreen.preventAutoHideAsync();
-
-export default function App() {
-  const [loaded] = useFonts({
-    Icomoon: require("./src/assets/fonts/icomoon.ttf"),
-  });
+const App = () => {
+  const [isFirstLaunch, setIsFirstLaunch] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded]);
+    const checkFirstLaunch = async () => {
+      try {
+        const value = await AsyncStorage.getItem('@alreadyLaunched');
+        if (value === null) {
+          // Es la primera vez
+          await AsyncStorage.setItem('@alreadyLaunched', 'true');
+          setIsFirstLaunch(true);
+        } else {
+          // No es la primera vez
+          setIsFirstLaunch(false);
+        }
+      } catch (error) {
+        console.error('Error checking first launch:', error);
+        setIsFirstLaunch(true);
+      } finally {
+        setIsLoading(false);
+      }
+    };
 
-  if (!loaded) {
-    return null;
+    checkFirstLaunch();
+  }, []);
+
+  if (isLoading) {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <ActivityIndicator size="large" />
+      </View>
+    );
   }
 
-  return (
-    <NavigationContainer>
-      <TabNavigator />
-    </NavigationContainer>
-  );
-}
+  return isFirstLaunch ? '' : <StackNavigator />;
+};
+
+export default App;
