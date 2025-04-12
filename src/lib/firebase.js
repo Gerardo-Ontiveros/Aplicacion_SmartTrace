@@ -1,5 +1,5 @@
-import { initializeApp } from "firebase/app";
-import { getDatabase, ref, onValue } from "firebase/database";
+import { initializeApp } from 'firebase/app';
+import { getDatabase, ref, onValue } from 'firebase/database';
 import {
   API_KEY,
   AUTH_DOMAIN,
@@ -9,7 +9,7 @@ import {
   MESSAGING_SENDER_ID,
   APP_ID,
   MEASUREMENT_ID,
-} from "env-config";
+} from 'env-config';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
