@@ -1,11 +1,11 @@
-import React from "react";
-import { CardList } from "@components/CardList";
-import Sun from "../assets/sun.png";
-import Sun2 from "../assets/sun2.png";
-import CloudDay from "../assets/cloudday.png";
-import Raining from "../assets/raining.png";
-import Cloud from "../assets/cloud.png";
-import { Layout } from "../layout/Layout";
+import React from 'react';
+import { CardTemperatureList } from '@components/CardTemperatureList';
+import Sun from '../assets/sun.avif';
+import Sun2 from '../assets/sun2.avif';
+import CloudDay from '../assets/cloudday.avif';
+import Raining from '../assets/raining.avif';
+import Cloud from '../assets/cloud.avif';
+import { Layout } from '../layout/Layout';
 
 const lastUpdate = [
   {
@@ -49,7 +49,7 @@ export const Temperature = () => {
   return (
     <Layout view>
       {lastUpdate.map((item) => (
-        <CardList
+        <CardTemperatureList
           key={item.id}
           image={item.image}
           temperature={item.temperature}
